@@ -9,8 +9,10 @@ for path in os.listdir(data_dir):
     object_selection.append(path)
 
 
-df = pd.read_csv("breast-level_annotations.csv")
+df = pd.read_csv("split_data.csv")
 
 selected_df = df[df["study_id"].isin(object_selection)]
 
 selected_df.to_csv("data.csv")
+
+print(set(df["split"].to_list()))
